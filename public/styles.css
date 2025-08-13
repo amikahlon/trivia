@@ -1,0 +1,440 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --surface: #334155;
+  --surface-hover: #475569;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --accent: #06b6d4;
+  --accent-hover: #0891b2;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --border: #475569;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --grad-hero: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #f43f5e 100%);
+  --grad-card: linear-gradient(
+    180deg,
+    rgba(6, 182, 212, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
+  --grad-btn-start: linear-gradient(
+    135deg,
+    #06b6d4 0%,
+    #8b5cf6 50%,
+    #f43f5e 100%
+  );
+  --grad-btn-next: linear-gradient(135deg, #22c55e 0%, #06b6d4 100%);
+  --grad-btn-restart: linear-gradient(135deg, #f59e0b 0%, #f43f5e 100%);
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--bg-primary) 0%,
+    var(--bg-secondary) 100%
+  );
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1 {
+  margin: 0 0 3rem;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  background: var(--grad-hero);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: var(--grad-card);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input,
+select {
+  padding: 0.875rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--border);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.1);
+}
+
+button {
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  background: var(--accent);
+  color: white;
+  box-shadow: var(--shadow);
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform, box-shadow, background-color;
+}
+
+button:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+#startBtn {
+  grid-column: span 2;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  background: var(--grad-btn-start);
+  border-radius: 999px;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.25),
+    0 4px 10px rgba(6, 182, 212, 0.25);
+  animation: pulseGlow 2.5s ease-out infinite;
+}
+
+#startBtn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+#nextBtn {
+  background: var(--grad-btn-next);
+}
+
+#nextBtn:hover:not(:disabled) {
+  background: #16a34a;
+}
+
+#restartBtn {
+  background: var(--grad-btn-restart);
+  color: #fff;
+}
+
+#restartBtn:hover:not(:disabled) {
+  background: #d97706;
+}
+
+#status {
+  min-height: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.card {
+  background: var(--surface);
+  padding: 2.5rem;
+  border-radius: 1rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-lg);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.q {
+  font-weight: 600;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.choice {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--bg-secondary);
+  border: 2px solid var(--border);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+  text-align: left;
+  color: var(--text-primary);
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.choice:hover:not(:disabled) {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+  transform: translateX(4px);
+  box-shadow: 0 6px 18px rgba(6, 182, 212, 0.18);
+}
+
+.choice:disabled {
+  cursor: not-allowed;
+}
+
+.choice.correct {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+  font-weight: 600;
+}
+
+.choice.wrong {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: white;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.meta {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 500;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+#scoreBox {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-lg);
+}
+
+#scoreBox h2 {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+#scoreBox p {
+  font-size: 1.3rem;
+  margin: 0 0 2rem;
+  color: var(--text-secondary);
+}
+
+#scoreText {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.site-footer {
+  margin-top: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  #startBtn {
+    grid-column: span 1;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .q {
+    font-size: 1.2rem;
+  }
+
+  #scoreBox {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .controls {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+
+  .choice {
+    padding: 0.9rem;
+  }
+
+  #startBtn {
+    width: 100%;
+  }
+}
+
+/* Better rendering + dark color scheme */
+body {
+  color-scheme: dark;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Safari support for blur panels (and ensure blur applied everywhere needed) */
+.controls,
+.card,
+#scoreBox {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Prevent long strings from breaking layout */
+.q,
+.choice {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Strong, accessible keyboard focus */
+input:focus-visible,
+select:focus-visible,
+button:focus-visible,
+.choice:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.25);
+}
+
+/* Mobile tap highlight + minor perf hints */
+button,
+.choice {
+  -webkit-tap-highlight-color: transparent;
+  will-change: transform, box-shadow, background-color;
+}
+
+/* Respect reduced motion to avoid jank on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .choice:hover,
+  button:hover {
+    transform: none !important;
+  }
+  #startBtn {
+    animation: none !important;
+  }
+}
+
+/* Pulse glow animation (disabled for reduced motion) */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.45),
+      0 0 0 0 rgba(139, 92, 246, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(6, 182, 212, 0), 0 0 0 8px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(6, 182, 212, 0), 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}

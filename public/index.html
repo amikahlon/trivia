@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Trivia Quick – Simple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./styles.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🎯 Trivia Quick</h1>
+        </header>
+
+        <main>
+            <section class="controls">
+                <label>
+                    📊 Questions
+                    <input id="amount" type="number" min="1" max="50" value="5" />
+                </label>
+
+                <label>
+                    🎮 Type
+                    <select id="type">
+                        <option value="">Any Type</option>
+                        <option value="multiple">Multiple Choice</option>
+                        <option value="boolean">True/False</option>
+                    </select>
+                </label>
+
+                <label>
+                    🎚️ Difficulty
+                    <select id="difficulty">
+                        <option value="">Any Difficulty</option>
+                        <option value="easy">Easy</option>
+                        <option value="medium">Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </label>
+
+                <div class="controls-actions">
+                    <button id="startBtn">🚀 Start Game</button>
+                </div>
+            </section>
+
+            <div id="status"></div>
+
+            <section id="game" class="hidden">
+                <article id="qBox" class="card">
+                    <div id="qText" class="q"></div>
+                    <div id="choices" class="choices"></div>
+                    <div class="meta">
+                        <span id="progress"></span>
+                    </div>
+                </article>
+
+                <div class="actions">
+                    <button id="nextBtn" disabled>➡️ Next Question</button>
+                </div>
+
+                <section id="scoreBox" class="hidden">
+                    <h2>🎉 Game Complete!</h2>
+                    <p>Your final score: <span id="scoreText">0</span></p>
+                    <button id="restartBtn">🔄 Play Again</button>
+                </section>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            By: Ami Kahlon &amp; Guy Or Shay &amp; Guy Mishan &amp; Ori Eliyahu
+        </footer>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
