@@ -1,0 +1,15 @@
+server_name: trivia_server
+env: production
+vpc_name: trivia_vpc
+network: 10.10.0.0/16
+subnet_cidr: 10.10.0.0/24
+env_name: trivia
+aws_region: eu-central-1
+subnet: eu-central-1a
+ansible_ssh_private_key_file: "~/.ssh/id_rsa"
+
+keypair: final_project_key_pair
+
+aws_ubuntu_ami: ami-03250b0e01c28d196
+Server_type: t2.micro
+server_volume_size: 10
